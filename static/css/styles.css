@@ -83,6 +83,7 @@ h1 {
 .model-card {
   padding: 10px;
 }
+
 /* Awards Section */
 
 #Algorithms {
@@ -141,6 +142,7 @@ h1 {
   width: 85%;
   height: 500px;
 }
+
 /* Test-drive Section */
 #Counselling {
   background-color: #022031;
@@ -179,19 +181,19 @@ h1 {
 /* Media Queries */
 
 @media (max-width: 992px) {
-   .title-image {
-     margin: 0 auto;
-   }
+  .title-image {
+    margin: 0 auto;
+  }
 
-   #models-section {
-     padding: 7% 12%;
-   }
+  #models-section {
+    padding: 7% 12%;
+  }
 
-   #awards-section {
-     padding: 8% 12%;
-   }
+  #awards-section {
+    padding: 8% 12%;
+  }
 
-   #services-section {
-     padding: 8% 12%;
-   }
+  #services-section {
+    padding: 8% 12%;
+  }
 }

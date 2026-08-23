@@ -1,0 +1,18 @@
+# Environments
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Flask
+instance/
+
+# IDEs
+.idea/
+.vscode/

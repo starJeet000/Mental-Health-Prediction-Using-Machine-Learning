@@ -1,60 +1,133 @@
-# **Mental Health Prediction Model**
+# Mental Health Prediction & Assessment System
 
-This project uses Machine Learning (ML) to predict mental health conditions in individuals based on their demographic and social information. The goal is to build a model that can be useful for early screening and intervention.
+An end-to-end Machine Learning web application designed to evaluate mental health indicators, perform standardized clinical depression screenings (PHQ-9), and provide visual decision transparency using Explainable AI (SHAP).
 
-## 
+---
 
-## **Technology Stack**
+## Key Features
 
-This project uses Python for the core ML logic, but the concepts are designed to be easily integrated into a full-stack web application (e.g., using Node.js/React as a deployment layer).
+- **Machine Learning Risk Prediction:** Utilizes an optimized AdaBoost Classifier trained on tech workplace survey data to predict mental health treatment likelihood.
+- **Clinical PHQ-9 Screening:** Integrated 9-question Patient Health Questionnaire providing immediate severity scoring (0–27 scale) alongside AI predictions.
+- **Explainable AI (XAI):** Implements SHAP (SHapley Additive exPlanations) to render dynamic Waterfall plots explaining feature contributions for each prediction.
+- **Interactive Counselling Booking:** Seamless form interface allowing users to schedule sessions directly with mental health specialists.
+- **Crisis Assistance:** Localized emergency contact info and 24/7 helplines embedded directly into result views.
+- **Containerized Deployment:** Includes production-ready Docker support powered by Gunicorn.
 
-* **Core ML Language:** Python  
-* **Libraries:** Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn  
-* **Models Evaluated:** AdaBoost, Random Forest, Decision Tree, Logistic Regression, and more.
+---
 
-## 
+## Tech Stack
 
-## **Methodology: How We Built It**
+- **Machine Learning & Data Science:** Python 3.12, Scikit-Learn, Pandas, NumPy, XGBoost, SHAP
+- **Backend Framework:** Flask, Gunicorn
+- **Frontend:** HTML5, CSS3, Bootstrap 5, Jinja2
+- **DevOps & Tooling:** Docker, VS Code
 
-We followed a standard ML workflow, focusing on high accuracy and clear results:
+---
 
-1. **Data Preparation:** Cleaned the raw dataset (from Kaggle) by handling missing values and converting text data into a format suitable for the models.  
-2. **Feature Selection (Wrapper Approach):** To ensure the model focused only on the most predictive factors, we used a **wrapper approach**. This means we used the model itself as a tool to test different combinations of features, finding the optimal subset for the best performance.  
-3. **Model Selection:** We tested various classification algorithms to find the best fit. **AdaBoost Classifier** was ultimately selected as the top performer.  
-4. **Model Evaluation:** Measured the model's performance using robust metrics.
+## Model Performance
 
-## 
+Multiple classification algorithms were trained, tuned, and evaluated during exploratory data analysis:
 
-## **Key Results**
+- **AdaBoost Classifier (Tuned):** ~86.9% Accuracy (Selected Final Model)
+- **Random Forest Classifier**
+- **XGBoost Classifier**
+- **Logistic Regression**
 
-* **Best Performing Model:** **AdaBoost Classifier**.  
-* **Overall Accuracy:** The final model achieved an accuracy of **86.93%** in predicting mental health conditions.
+Model evaluation was validated using Confusion Matrices, ROC-AUC curves, and Precision-Recall metrics.
 
-## 
+---
 
-## **Advanced Evaluation & Future Features**
+## Project Structure
 
-We implemented advanced features to give a clearer, more detailed view of the model's performance beyond simple accuracy. We plan to integrate these plots into a web dashboard later:
+```text
+├── models/                  # Serialized ML artifacts (.pkl)
+│   ├── model.pkl            # Trained AdaBoost Classifier
+│   ├── ct.pkl               # ColumnTransformer pipeline
+│   └── le.pkl               # LabelEncoder object
+├── static/                  # Static assets (CSS, JS, generated plots)
+│   ├── css/
+│   └── images/              # Dynamic SHAP plot storage
+├── templates/               # HTML Jinja2 Templates
+│   ├── index.html           # Landing page & booking form
+│   ├── form.html            # Primary ML & PHQ-9 assessment form
+│   ├── result.html          # Dynamic prediction & XAI dashboard
+│   └── booking_success.html # Appointment confirmation view
+├── app.ipynb                # Jupyter Notebook for Data Cleaning, EDA & Training
+├── app.py                   # Flask Application Backend
+├── Dockerfile               # Production Containerization Specification
+├── requirements.txt         # Unpinned Python dependencies
+├── changelog.md             # Project version history
+└── survey.csv               # Kaggle OSMI Mental Health Dataset
+```
 
-* **ROC Curve (Receiver Operating Characteristic):** Shows the model's ability to distinguish between individuals with and without a predicted condition.  
-* **Precision-Recall Curve:** Provides detailed insight into the trade-off between the model's correct positive predictions and its ability to find all relevant cases.  
-* **Feature Importance Plot:** Clearly visualizes which demographic or social factors are most heavily weighted by the model when making a prediction.
+---
 
-## 
+## How to Run Locally
 
-## **How to Run Locally**
+### Prerequisites
 
-1. **Clone the project:**  
-   git clone \[repository-link-here\]
+- **Python 3.10+ installed**
 
-2. **Install requirements:**  
-   pip install \-r requirements.txt
+- **Git**
 
-3. **Run the script:**  
-   python main.py
+### Step-by-Step Setup
 
-   *Follow the on-screen console instructions for input and results.*
+1. **Clone the Repository**:
 
-## **Conclusion**
+```Bash
+git clone https://github.com/starJeet000/Mental-Health-Prediction-Using-Machine-Learning.git
 
-This model is a strong foundation for predicting mental health conditions. Future steps involve turning this core Python logic into a **Full Stack web application** for wider accessibility and practical use.
+cd Mental-Health-Prediction-Using-Machine-Learning
+```
+
+2. **Create and Activate Virtual Environment:**
+
+```bash
+#Windows (PowerShell)
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+
+#Linux / macOS
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+3. **Install Dependencies:**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Run the Flask Server:**
+
+```bash
+python app.py
+```
+
+5. **Access the Web App:**
+
+Open your browser and navigate to `http://127.0.0.1:8000`.
+
+---
+
+## Running with Docker
+
+To build and run the application inside a Docker container:
+
+```bash
+### Build the Docker image
+
+docker build -t mental-health-app .
+
+### Run the container
+
+docker run -p 8000:8000 mental-health-app
+```
+
+Navigate to `http://localhost:8000` in your browser.
+
+---
+
+## Disclaimer
+
+_This application is built for educational and preliminary screening purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment._
