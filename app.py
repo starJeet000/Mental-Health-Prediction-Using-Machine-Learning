@@ -77,6 +77,14 @@ def submit_form():
     else:
         phq_severity = "None / Minimal"
 
+    # --- CLINICAL SAFETY OVERRIDE ---
+    # If AI says "No" but clinical symptoms are Moderate or higher (>=10), override to "Yes"
+    override_flag = False
+    if treatment == "No" and phq_score >= 10:
+        treatment = "Yes"
+        override_flag = True
+    # --------------------------------------
+
     # --- SHAP EXPLAINER INTEGRATION (Base64 Memory Buffer) ---
     try:
         feature_names = ct.get_feature_names_out()
@@ -114,7 +122,8 @@ def submit_form():
                            prediction=treatment, 
                            phq_score=phq_score, 
                            phq_severity=phq_severity,
-                           plot_data=plot_data)
+                           plot_data=plot_data,
+                           override_flag= override_flag)
 
 @app.post('/book_session')
 def book_session():

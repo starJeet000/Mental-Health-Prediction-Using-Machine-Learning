@@ -2,9 +2,11 @@
 
 All notable changes to the "Mental Health Prediction Using Machine Learning" project will be documented in this file.
 
-## [1.0.0] - 2026-08-22
+## [1.0.0] - 2026-08-25
 
 ### Added
+
+- **Clinical Safety Override**: Implemented backend logic to automatically override the AI's baseline prediction if the user's PHQ-9 clinical score indicates moderate to severe symptoms (>=10), ensuring patient safety takes precedence.
 
 - **Counselling Booking Flow**: Added `/book_session` POST endpoint in `app.py` and created the `booking_success.html` confirmation view with full input validation.
 - **Standardized Clinical Assessment (PHQ-9)**: Embedded the 9-question Patient Health Questionnaire directly into `form.html` utilizing Jinja templating.
@@ -17,6 +19,8 @@ All notable changes to the "Mental Health Prediction Using Machine Learning" pro
 
 ### Changed
 
+- **SHAP Rendering Architecture**: Migrated from physical file-based plot generation to an in-memory Base64 encoding buffer (`io.BytesIO()`) to prevent browser caching issues and support concurrent users safely on cloud platforms.
+- **Backend Optimization**: Cleaned up `app.py` by removing unused dependencies (`SQLAlchemy`, `datetime`, `os`) to optimize startup time and reduce container memory footprint.
 - **Project Structure**: Restructured the workspace into modular directories (`models/`, `static/`, `templates/`) for production readiness.
 - **Dependencies (`requirements.txt`)**: Removed strict version pinning for Python 3.12.10 compatibility; added `xgboost`, `shap`, and `gunicorn`.
 - **Backend Routing (`app.py`)**: Updated form endpoints to render Jinja2 templates and added non-GUI Matplotlib backend configuration (`matplotlib.use('Agg')`) to safely render SHAP plots.

@@ -1,5 +1,7 @@
 # Mental Health Prediction & Assessment System
 
+🚀 **Live Demo:** [Link to your deployed application will go here]
+
 An end-to-end Machine Learning web application designed to evaluate mental health indicators, perform standardized clinical depression screenings (PHQ-9), and provide visual decision transparency using Explainable AI (SHAP).
 
 ---
@@ -7,7 +9,8 @@ An end-to-end Machine Learning web application designed to evaluate mental healt
 ## Key Features
 
 - **Machine Learning Risk Prediction:** Utilizes an optimized AdaBoost Classifier trained on tech workplace survey data to predict mental health treatment likelihood.
-- **Clinical PHQ-9 Screening:** Integrated 9-question Patient Health Questionnaire providing immediate severity scoring (0–27 scale) alongside AI predictions.
+- **Clinical PHQ-9 Screening:** Integrated 9-question Patient Health Questionnaire providing immediate severity scoring (0 to 27 scale) alongside AI predictions.
+- **Clinical Safety Override:** System architecture ensures patient safety by prioritizing standardized clinical symptom thresholds (PHQ-9 >= 10) over demographic-based AI predictions when determining final risk outputs.
 - **Explainable AI (XAI):** Implements SHAP (SHapley Additive exPlanations) to render dynamic Waterfall plots explaining feature contributions for each prediction.
 - **Interactive Counselling Booking:** Seamless form interface allowing users to schedule sessions directly with mental health specialists.
 - **Crisis Assistance:** Localized emergency contact info and 24/7 helplines embedded directly into result views.

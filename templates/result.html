@@ -26,6 +26,16 @@
     <!-- Conditional Rendering based on the prediction -->
     {% if prediction == 1 or prediction == "Yes" %}
 
+    <!-- Clinical Override Banner -->
+    {% if override_flag %}
+    <div
+      style="background-color: rgba(255, 193, 7, 0.9); color: #422a00; padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; font-size: 0.95rem;">
+      <strong>⚠️ Clinical Safety Override:</strong> Based purely on your workplace demographic data, the AI predicted a
+      lower risk. However, because your PHQ-9 clinical screening indicates active symptoms, our system has overridden
+      the AI's baseline prediction to prioritize your immediate well-being and recommend support.
+    </div>
+    {% endif %}
+
     <h2 style="color: #ff6b6b; margin-top: 20px;">Yes, you may be experiencing mental health challenges.</h2>
     <div style="max-width: 700px; margin: 30px auto; font-size: 1.2rem; line-height: 1.6;">
       <p>It takes courage to prioritize your well-being. Please remember that you are not alone, and experiencing these
@@ -35,6 +45,16 @@
     </div>
 
     {% else %}
+
+    <!-- Clinical Override Banner -->
+    {% if override_flag %}
+    <div
+      style="background-color: rgba(255, 193, 7, 0.9); color: #422a00; padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; font-size: 0.95rem;">
+      <strong>⚠️ Clinical Safety Override:</strong> Based purely on your workplace demographic data, the AI predicted a
+      lower risk. However, because your PHQ-9 clinical screening indicates active symptoms, our system has overridden
+      the AI's baseline prediction to prioritize your immediate well-being and recommend support.
+    </div>
+    {% endif %}
 
     <h2 style="color: #51cf66; margin-top: 20px;">No, you do not currently show strong signs of mental health issues.
     </h2>
