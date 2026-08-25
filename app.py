@@ -1,3 +1,7 @@
+import os
+# Disable Numba JIT compilation to prevent Out-Of-Memory crashes on cloud servers
+os.environ["NUMBA_DISABLE_JIT"] = "1"
+
 from flask import Flask, render_template, request
 from pandas import DataFrame
 import pickle
