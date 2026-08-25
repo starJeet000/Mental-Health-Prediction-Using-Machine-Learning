@@ -2,6 +2,18 @@
 
 All notable changes to the "Mental Health Prediction Using Machine Learning" project will be documented in this file.
 
+## [1.0.1] - 2026-08-25
+
+### Added
+
+- **Navigation & UI Enhancements**: Added an explicit "Back to Home" navigation button and embedded the `title-gif.gif` inspirational quote graphic beneath the Explainable AI insights section in `templates/result.html`.
+
+### Fixed
+
+- **Cloud Memory Limits (OOM):** Disabled Numba JIT compilation (`NUMBA_DISABLE_JIT="1"`) in `app.py` to prevent `SIGKILL` Out-Of-Memory crashes during SHAP waterfall plot generation on Render's 512MB free tier.
+- **HTTP 405 Method Errors:** Updated `@app.post` decorators to `@app.route(methods=['GET', 'POST'])` with a safe redirect fallback to prevent crashes if users manually refresh form submission endpoints.
+- **Docker Build Failures:** Stripped `requirements.txt` down to core Linux-compatible packages, removing local Windows-only dependencies (`pywin32`) and GUI utilities to ensure a clean container build.
+
 ## [1.0.0] - 2026-08-25
 
 ### Added

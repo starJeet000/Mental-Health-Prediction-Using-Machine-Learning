@@ -1,6 +1,6 @@
 # Mental Health Prediction & Assessment System
 
-🚀 **Live Demo:** [Link to your deployed application will go here]
+🚀 **Live Demo:** [Predict Your Mental Health Now](https://mental-health-prediction-using-machine-42cn.onrender.com/)
 
 An end-to-end Machine Learning web application designed to evaluate mental health indicators, perform standardized clinical depression screenings (PHQ-9), and provide visual decision transparency using Explainable AI (SHAP).
 
@@ -23,7 +23,7 @@ An end-to-end Machine Learning web application designed to evaluate mental healt
 - **Machine Learning & Data Science:** Python 3.12, Scikit-Learn, Pandas, NumPy, XGBoost, SHAP
 - **Backend Framework:** Flask, Gunicorn
 - **Frontend:** HTML5, CSS3, Bootstrap 5, Jinja2
-- **DevOps & Tooling:** Docker, VS Code
+- **DevOps & Tooling:** Docker, VS Code, Render
 
 ---
 
