@@ -65,4 +65,11 @@
 12. API Restructuring & Deployment:
     - Modularize into separate folders (`src/`, `models/`, `static/`, `templates/`).
     - Package application with Docker / Dockerfile for seamless cloud deployment (Render, Hugging Face, or AWS).
+
+--------------------------------------------------------------------------------
+
+[x] Setup A HTTP monitor for live URL
+[x] Create .github/workflows/keep_alive.yml scheduled cron job
+[x] Prevent free tier 15-minute idle spin-down
+
 ================================================================================

@@ -2,6 +2,12 @@
 
 All notable changes to the "Mental Health Prediction Using Machine Learning" project will be documented in this file.
 
+## [1.0.2] - 2026-08-26
+
+### Added
+
+- **Spin-Down Prevention (CI/CD)**: Configured a scheduled GitHub Actions workflow (`keep_alive.yml`) executing every 14 minutes and integrated an external UptimeRobot HTTP monitor to prevent Render Free Tier web service cold-start delays.
+
 ## [1.0.1] - 2026-08-25
 
 ### Added

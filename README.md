@@ -15,6 +15,7 @@ An end-to-end Machine Learning web application designed to evaluate mental healt
 - **Interactive Counselling Booking:** Seamless form interface allowing users to schedule sessions directly with mental health specialists.
 - **Crisis Assistance:** Localized emergency contact info and 24/7 helplines embedded directly into result views.
 - **Containerized Deployment:** Includes production-ready Docker support powered by Gunicorn.
+- **Zero Cold-Start Optimization:** Integrated automated 14-minute cron pings via GitHub Actions and UptimeRobot to prevent cloud container spin-downs.
 
 ---
 
