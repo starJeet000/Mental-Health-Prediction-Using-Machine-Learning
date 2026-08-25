@@ -2,7 +2,7 @@ import os
 # Disable Numba JIT compilation to prevent Out-Of-Memory crashes on cloud servers
 os.environ["NUMBA_DISABLE_JIT"] = "1"
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from pandas import DataFrame
 import pickle
 import io
@@ -30,8 +30,10 @@ def hello_world():
 def show_form():
     return render_template('form.html')
 
-@app.post('/submit_form')
+@app.post('/submit_form', methods= ['GET','POST'])
 def submit_form():
+    if request.method == 'GET':
+        return redirect (url_for('hello world')) # Redirect back to home if accessed via GET
     # ML Data Extraction
     data = [{
         "Age": int(request.form["inputAge"]),
