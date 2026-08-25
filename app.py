@@ -30,7 +30,7 @@ def hello_world():
 def show_form():
     return render_template('form.html')
 
-@app.post('/submit_form', methods= ['GET','POST'])
+@app.route('/submit_form', methods= ['GET','POST'])
 def submit_form():
     if request.method == 'GET':
         return redirect (url_for('hello world')) # Redirect back to home if accessed via GET
